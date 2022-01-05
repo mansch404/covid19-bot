@@ -1,0 +1,3 @@
+# ignore the sensitive data
+*.txt
+*.DS_Store
