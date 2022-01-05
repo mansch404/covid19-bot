@@ -1,1 +1,1 @@
-#Covid-19 Twitter Bot for Germany#
+# Covid-19 Twitter Bot for Germany #
