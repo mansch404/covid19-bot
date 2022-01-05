@@ -1,3 +1,5 @@
-# ignore the sensitive data
+# ignore sensitive data saved in cfg or txt
 *.txt
+keys.cfg
+# ignores empty DS_Store files
 *.DS_Store

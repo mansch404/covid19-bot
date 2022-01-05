@@ -1,0 +1,38 @@
+{
+    "cases": 7297320,
+    "casesPer100k": 8775.560434822037,
+    "casesPerWeek": 215078,
+    "deaths": 112925,
+    "delta": {
+        "cases": 58912,
+        "deaths": 346,
+        "recovered": 49884
+    },
+    "hospitalization": {
+        "cases7Days": 2661,
+        "date": "2022-01-05T00:00:00.000Z",
+        "incidence7Days": 3.2,
+        "lastUpdate": "2022-01-05T03:47:47.000Z"
+    },
+    "meta": {
+        "contact": "Marlon Lueckert (m.lueckert@me.com)",
+        "info": "https://github.com/marlon360/rki-covid-api",
+        "lastCheckedForUpdate": "2022-01-05T13:02:00.336Z",
+        "lastUpdate": "2022-01-05T00:00:00.000Z",
+        "source": "Robert Koch-Institut"
+    },
+    "r": {
+        "lastUpdate": "2022-01-05T01:57:24.000Z",
+        "rValue4Days": {
+            "date": "2022-01-01T00:00:00.000Z",
+            "value": 0.85
+        },
+        "rValue7Days": {
+            "date": "2021-12-31T00:00:00.000Z",
+            "value": 1.03
+        },
+        "value": 0.85
+    },
+    "recovered": 6581772,
+    "weekIncidence": 258.6470083812487
+}
