@@ -2,7 +2,6 @@ import configparser
 import json
 import requests
 import tweepy
-from datetime import datetime
 
 # Getting the keys to the API
 
@@ -66,7 +65,7 @@ def delete_all_tweets():
     for tweet in timeline:
         api.destroy_status(tweet.id)
 
-try:
-	run()
-except:
-	raise
+schedule.every().day.at("06:00").do(run)
+while True:
+    schedule.run_pending()
+    time.sleep(2)
