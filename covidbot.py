@@ -3,8 +3,11 @@ import schedule
 import json
 import requests
 import tweepy
+<<<<<<< HEAD
 import time
 from datetime import datetime
+=======
+>>>>>>> a7aedff0bdf3f4baf280494b9750691b4beeb745
 
 # Getting the keys to the API
 
@@ -76,8 +79,15 @@ def delete_all_tweets():
     for tweet in timeline:
         api.destroy_status(tweet.id)
 
+<<<<<<< HEAD
 schedule.every().day.at("17:57").do(run)
 
 while True: 
 	schedule.run_pending()
 	time.sleep(1)
+=======
+schedule.every().day.at("06:00").do(run)
+while True:
+    schedule.run_pending()
+    time.sleep(2)
+>>>>>>> a7aedff0bdf3f4baf280494b9750691b4beeb745
