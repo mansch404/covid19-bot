@@ -1,7 +1,9 @@
 import configparser
+import schedule
 import json
 import requests
 import tweepy
+import time
 from datetime import datetime
 
 # Getting the keys to the API
@@ -52,21 +54,30 @@ def get_data():
 
 def run():
 	if DEV_RUN:
-		delete_all_tweets()
+		pass
 	get_data()
 	tweet = ""
 	with open("cov_data.json", "r") as data:
 		cov_data = json.load(data)
-		tweet = "Neuinfektionen: " + str(cov_data["delta"]["cases"]) + "\n" + "Neue Todesfälle: " + str(cov_data["delta"]["deaths"]) + "\nR-Wert: " + str(cov_data["r"]["value"])
-	if not DEV_RUN or TWEET_POST:
-		api.update_status(tweet)
+		tweet = "Infektionen:  " + str(cov_data["cases"]) + "  | + " + str(cov_data["delta"]["cases"])  
+		tweet = tweet + "  heute\nTodesfälle:       " + str(cov_data["deaths"]) + "  | + " + str(cov_data["delta"]["deaths"])
+		tweet = tweet + "      heute\nInzidenz:          " + str(round(cov_data["weekIncidence"], 2))
+		tweet = tweet + "\nR-Wert:                " + str(cov_data["r"]["value"])
+		print(tweet)
+	if TWEET_POST:
+		try:
+			api.update_status(tweet)
+		except Error as e:
+			print('Error occured')
+			print(e)
 
 def delete_all_tweets():
     timeline = tweepy.Cursor(api.user_timeline).items()
     for tweet in timeline:
         api.destroy_status(tweet.id)
 
-try:
-	run()
-except:
-	raise
+schedule.every().day.at("17:57").do(run)
+
+while True: 
+	schedule.run_pending()
+	time.sleep(1)
